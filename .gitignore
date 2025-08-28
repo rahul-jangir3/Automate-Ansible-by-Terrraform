@@ -1,0 +1,6 @@
+ansible
+terraform-ansible-key.pem
+terraform.tfstate
+terraform.tfstate.backup
+.terraform.lock.hcl
+.terraform/modules/docker_instance
