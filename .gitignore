@@ -1,4 +1,3 @@
-ansible
 terraform-ansible-key.pem
 terraform.tfstate
 terraform.tfstate.backup

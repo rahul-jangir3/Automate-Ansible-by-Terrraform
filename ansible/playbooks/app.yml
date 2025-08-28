@@ -1,0 +1,31 @@
+---
+- name: Setup and Run Portfolio App
+  hosts: ec2
+  become: yes
+
+  vars:
+    app_repo: "https://github.com/rahul-jangir3/rahul-kumar-portfolio"
+    app_path: "/var/www/portfolio-demo"
+
+  tasks:
+    - name: Clone portfolio repo
+      git:
+        repo: "{{ app_repo }}"
+        dest: "{{ app_path }}"
+        version: main
+        force: yes
+    
+    - name: Install project dependencies
+      shell: npm install
+      args:
+        chdir: "{{ app_path }}" 
+    - name: Initialize npm project (accept all defaults)
+      command: npm init -y
+      args:
+        chdir: "{{ app_path }}"
+
+    - name: Build portfolio
+      command: npm run build
+      args:
+        chdir: "{{ app_path }}"
+

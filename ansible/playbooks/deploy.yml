@@ -1,0 +1,28 @@
+---
+- name: Deploy Build to Nginx
+  hosts: ec2
+  become: yes
+
+  vars:
+    build_path: "/var/www/portfolio-demo/build"
+    nginx_root: "/var/www/html"
+
+  tasks:
+    - name: Remove default Nginx HTML content
+      file:
+        path: /var/www/html
+        state: absent
+
+    - name: Recreate Nginx HTML directory
+      file:
+        path: /var/www/html
+        state: directory
+
+    - name: Copy build output to Nginx root
+      shell: cp -r "{{build_path}}"/* "{{nginx_root}}"/
+
+    - name: Restart Nginx service
+      service:
+        name: nginx
+        state: restarted
+

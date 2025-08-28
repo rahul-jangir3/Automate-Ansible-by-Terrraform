@@ -1,0 +1,4 @@
+---
+- import_playbook: playbooks/env.yml
+- import_playbook: playbooks/app.yml
+- import_playbook: playbooks/deploy.yml
