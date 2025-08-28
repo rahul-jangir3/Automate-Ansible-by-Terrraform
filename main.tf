@@ -108,7 +108,7 @@ resource "local_file" "inventory" {
 }
 
 # -----------------
-# Clone GitHub Repo (before running Ansible)
+# Clone GitHub Repo (before running Ansible)-----(optional)
 # -----------------
 resource "null_resource" "clone_repo" {
   provisioner "local-exec" {
@@ -116,7 +116,7 @@ resource "null_resource" "clone_repo" {
       if [ -d "./ansible" ]; then
         git -C ./ansible pull
       else
-        git clone https://github.com/rahul-jangir3/Deploy-portfolio-using-ansible.git ./ansible
+        git clone https://github.com/<ansible-playbook-repo>.git ./ansible
       fi
     EOT
   }
