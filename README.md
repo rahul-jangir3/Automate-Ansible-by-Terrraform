@@ -31,10 +31,21 @@ This project demonstrates **Infrastructure as Code (IaC)** with **Terraform** an
 ```bash
 
 terraform-ansible-ec2/
-├── main.tf              # Main Terraform configuration
-├── inventory.tpl        # Template for dynamic inventory
-├── ansible/             # Ansible playbooks & roles
-│   ├── main.yml         # Main Ansible playbook
+├── ansible       # All Playbooks of Ansible
+│   ├── main.yml
+│   └── playbooks
+│       ├── app.yml
+│       ├── deploy.yml
+│       └── env.yml
+├── ansible.tf    # Inventory, repo clone, and Ansible provisioner
+├── ec2-docker.tf # It is creating my docker Instance
+├── ec2-nginx.tf  # It is creating my Nginx Instance
+├── inventory.tpl # Template file for inventory.ini
+├── outputs.tf    # All outputs
+├── provider.tf   # Procider AWS
+├── security.tf   # Security group
+├── ssh.tf        # Key pair generation & private key
+└── terraform.tf  # terraform block
 ```
 ------------------------------------------------------------------
 Install Dependencies

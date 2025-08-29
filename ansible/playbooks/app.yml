@@ -4,7 +4,7 @@
   become: yes
 
   vars:
-    app_repo: "https://github.com/<portfolio-repo>.git"
+    app_repo: "https://github.com/rahul-jangir3/rahul-kumar-portfolio.git"
     app_path: "/var/www/portfolio-demo"
 
   tasks:
